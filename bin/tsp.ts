@@ -2,6 +2,8 @@
 
 import * as program from 'commander';
 
+import { build, publish } from '../lib';
+
 const pkg = require('../package.json');
 
 program.version(pkg.version);
@@ -9,11 +11,11 @@ program.version(pkg.version);
 program
   .command('build')
   .description('build typescript files')
-  .action(() => console.log('build'));
+  .action(build);
 
 program
   .command('publish')
   .description('publish package to npm')
-  .action(() => console.log('publish'));
+  .action(publish);
 
 program.parse(process.argv);
