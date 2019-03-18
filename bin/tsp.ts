@@ -10,13 +10,15 @@ program.version(pkg.version);
 
 program
   .command('build')
-  .option('-p, --project', 'Project file path')
   .description('build typescript files')
+  .option('-p, --project [value]', 'Project file path')
   .action(build);
 
 program
   .command('publish')
   .description('publish package to npm')
+  .option('-p, --project [value]', 'Project file path')
+  .option('-o, --otp', 'otpcode')
   .action(publish);
 
 program.parse(process.argv);
