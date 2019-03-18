@@ -7,10 +7,25 @@ import { projectPath, modulePath, getOutDirPath } from './util';
 export const build = (...args) => {
   const cmd = args[args.length - 1];
   const tscPath = path.resolve(modulePath, 'typescript', 'bin', 'tsc');
-  execSync(`${tscPath} --project ${projectPath}`).toString();
+  try {
+    execSync(`${tscPath} --project ${projectPath}`);
+  } catch (e) {
+    console.error(e.stdout.toString());
+    throw new Error('tsc compile error');
+  }
+
+  // copy package.json
+  const packageJson = require(path.resolve(projectPath, 'package.json'));
+  if (!packageJson.private) {
+    console.warn('private option is not set in package.json');
+  }
+  delete packageJson.private;
+  const outDirPath = getOutDirPath(cmd.project);
+  const packagePath = path.resolve(outDirPath, 'package.json');
+  const indent = (packageJson.prettier && packageJson.prettier.tabWidth) || 2;
+  fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, indent));
 
   // update bin files
-  const outDirPath = getOutDirPath(cmd.project);
   const binpath = path.join(outDirPath, 'bin');
   if (!fs.existsSync(binpath) || !fs.statSync(binpath).isDirectory()) {
     return;
