@@ -10,6 +10,7 @@ program.version(pkg.version);
 
 program
   .command('build')
+  .option('-p, --project', 'Project file path')
   .description('build typescript files')
   .action(build);
 

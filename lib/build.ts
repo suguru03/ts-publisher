@@ -4,9 +4,8 @@ import { execSync } from 'child_process';
 
 import { projectPath, modulePath } from './util';
 
-export const build = () => {
-  // TODO: add option to specify tsconfig
-  const tsconfigPath = path.resolve(projectPath, 'tsconfig.json');
+export const build = (configPath: any) => {
+  const tsconfigPath = path.resolve(projectPath, typeof configPath === 'string' ? configPath : 'tsconfig.json');
   const { compilerOptions } = require(tsconfigPath);
   const { outDir = '' } = compilerOptions || {};
   if (!outDir) {
