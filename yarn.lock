@@ -1913,6 +1913,14 @@ toposort@^2.0.2:
   resolved "https://registry.yarnpkg.com/toposort/-/toposort-2.0.2.tgz#ae21768175d1559d48bef35420b2f4962f09c330"
   integrity sha1-riF2gXXRVZ1IvvNUILL0li8JwzA=
 
+ts-publisher@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/ts-publisher/-/ts-publisher-0.0.2.tgz#4bc95c11a9f3e90dee1e233380d7b9d973e38b82"
+  integrity sha512-ncEwUk0TXdfmhdSFykolMv2DrN1F2FZF4veynu05pzOoagZJNeQMzl52nCBwEzWczQk65hQAsfaqk0UQud44GQ==
+  dependencies:
+    commander "^2.19.0"
+    inquirer "^6.2.2"
+
 tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
