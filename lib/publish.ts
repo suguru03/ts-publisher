@@ -18,7 +18,6 @@ export const publish = async (...args) => {
   if (!confirmation) {
     process.exit(1);
   }
-
   console.log(`publishing... ${name}`);
   execSync(`cd ${outDirPath} && npm publish ${cmd.otp ? '--otp=' + cmd.otp : ''}`);
   console.log('published!');

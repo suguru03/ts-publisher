@@ -18,7 +18,7 @@ program
   .command('publish')
   .description('publish package to npm')
   .option('-p, --project [value]', 'Project file path')
-  .option('-o, --otp', 'otpcode')
+  .option('-o, --otp [integer]', 'otpcode')
   .action(publish);
 
 program.parse(process.argv);
