@@ -2,12 +2,17 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { execSync } from 'child_process';
 
+import * as rimraf from 'rimraf';
+
 import { projectPath, modulePath, getOutDirPath } from './util';
 
 const files = ['./README.md'];
 
 export const build = (...args) => {
   const cmd = args[args.length - 1];
+  const outDirPath = getOutDirPath(cmd.project);
+  rimraf.sync(outDirPath);
+
   const tscPath = path.resolve(modulePath, 'typescript', 'bin', 'tsc');
   try {
     execSync(`${tscPath} --project ${projectPath}`);
@@ -22,7 +27,6 @@ export const build = (...args) => {
     console.warn('private option is not set in package.json');
   }
   delete packageJson.private;
-  const outDirPath = getOutDirPath(cmd.project);
   const packagePath = path.resolve(outDirPath, 'package.json');
   const indent = (packageJson.prettier && packageJson.prettier.tabWidth) || 2;
   fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, indent));
