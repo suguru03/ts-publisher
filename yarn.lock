@@ -1913,10 +1913,10 @@ toposort@^2.0.2:
   resolved "https://registry.yarnpkg.com/toposort/-/toposort-2.0.2.tgz#ae21768175d1559d48bef35420b2f4962f09c330"
   integrity sha1-riF2gXXRVZ1IvvNUILL0li8JwzA=
 
-ts-publisher@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/ts-publisher/-/ts-publisher-0.0.2.tgz#4bc95c11a9f3e90dee1e233380d7b9d973e38b82"
-  integrity sha512-ncEwUk0TXdfmhdSFykolMv2DrN1F2FZF4veynu05pzOoagZJNeQMzl52nCBwEzWczQk65hQAsfaqk0UQud44GQ==
+ts-publisher@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/ts-publisher/-/ts-publisher-0.1.0.tgz#ce8b2c621181a238fdb8c6baad2d99683db5d84c"
+  integrity sha512-cgS3Xrig62QGyHiTZZBUK9v+0LE8GZM78dlSzwiwOUpiZz1QjgxjStZcNWHx4h7xSx2lwXvPEmk6U+jZQklxWg==
   dependencies:
     commander "^2.19.0"
     inquirer "^6.2.2"

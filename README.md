@@ -7,13 +7,13 @@ It helps to publish your TypeScript libraries to npm.
 - changes permissions of binary files
 - copy package.json into `outDir` and remove `private` flag
 - copy README.md into `outDir`
-- publish your built file to npm
+- publish your built files to npm
 
 ## How to install
 
 ```sh
 $ npm install -D ts-publisher
-// or 
+// or
 $ yarn add -D ts-publisher
 ```
 
@@ -32,6 +32,8 @@ $ yarn tsp build
 |-p, --project|specify tsconfig path. The default is \<your library>/tsconfig.json|
 
 ## Publish
+
+You need to login npm cli before using the publish task.
 
 ```
 $ npx tsp publish
