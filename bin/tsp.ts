@@ -2,7 +2,7 @@
 
 import * as program from 'commander';
 
-import { build, publish } from '../lib';
+import { build, publish, version } from '../lib';
 
 const pkg = require('../package.json');
 
@@ -13,6 +13,12 @@ program
   .description('build typescript files')
   .option('-p, --project [value]', 'Project file path')
   .action(build);
+
+program
+  .command('version')
+  .description('bump version')
+  .option('-o, --orphan', 'create a new orphan tag')
+  .action(version);
 
 program
   .command('publish')

@@ -15,7 +15,8 @@
   "dependencies": {
     "commander": "^2.19.0",
     "inquirer": "^6.2.2",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "semver": "^6.1.1"
   },
   "devDependencies": {
     "@types/inquirer": "^0.0.44",
