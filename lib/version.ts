@@ -11,7 +11,8 @@ enum Options {
   Minor = 'minor',
   Patch = 'patch',
 }
-export const version = option => {
+export const version = (...args: any[]) => {
+  const [option] = args.pop() ?? [];
   if (!Object.values(Options).includes(option)) {
     throw new Error('Invalid option. Option must be major, minor or patch');
   }
