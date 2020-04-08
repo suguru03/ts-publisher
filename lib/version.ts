@@ -22,5 +22,5 @@ export const version = (options, [version] = []) => {
   const message = options.message ?? `v${pkg.version}`;
   execSync(`git commit -am "${message}"`);
   execSync(`git tag ${pkg.version} -m "${message}"`);
-  console.log(`created ${pkg.version}`);
+  console.log(`created v${pkg.version} tag`);
 };
