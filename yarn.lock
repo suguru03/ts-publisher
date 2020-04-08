@@ -1166,10 +1166,10 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-ts-publisher@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/ts-publisher/-/ts-publisher-0.2.0.tgz#e0a2663ec3f46b42bfd58fafa12e18a5ee476aa1"
-  integrity sha512-G/y6SfVFymLTJXcpmxD2PWqtFFdB2KqWm4qMhrynHm/N27yTcsVALe5MyLugwe042gqltYcDu2VDc28jynObBQ==
+ts-publisher@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/ts-publisher/-/ts-publisher-0.3.0.tgz#a25fb74e51478667807e115a1354c2502293c8bf"
+  integrity sha512-uXZMyKSvRWS6/PMhrXk80h6iHquMAxRSkygn+a7oRY1zl80XlGj33PmPnxnmwKZ3OHw1kqCwmgPoKulXKh5h5A==
   dependencies:
     commander "^4.0.1"
     inquirer "^7.0.0"
