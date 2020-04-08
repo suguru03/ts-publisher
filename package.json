@@ -22,12 +22,12 @@
   "devDependencies": {
     "@types/inquirer": "^6.5.0",
     "@types/node": "^12.12.14",
-    "husky": "^3.1.0",
-    "lint-staged": "^9.5.0",
-    "prettier": "^1.19.1",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.2",
+    "prettier": "^2.0.4",
     "ts-publisher": "^0.2.0",
     "tslint": "^5.12.1",
-    "typescript": "^3.7.2"
+    "typescript": "^3.8.3"
   },
   "husky": {
     "hooks": {
@@ -36,8 +36,7 @@
   },
   "lint-staged": {
     "*.{js,ts}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "prettier": {
