@@ -10,13 +10,15 @@ export const publish = async (...args) => {
   const outDirPath = getOutDirPath(cmd.project);
   const packageJson = require(path.resolve(outDirPath, 'package.json'));
   const name = `${packageJson.name}@${packageJson.version}`;
-  const { confirmation } = await inquirer.prompt({
-    name: 'confirmation',
-    type: 'confirm',
-    message: `name: ${name}\ntarget dir: ${outDirPath}`,
-  });
-  if (!confirmation) {
-    process.exit(1);
+  if (!process.env.CI) {
+    const { confirmation } = await inquirer.prompt({
+      name: 'confirmation',
+      type: 'confirm',
+      message: `name: ${name}\ntarget dir: ${outDirPath}`,
+    });
+    if (!confirmation) {
+      process.exit(1);
+    }
   }
   console.log(`publishing... ${name}`);
   execSync(`cd ${outDirPath} && ${getExecPath()} publish ${cmd.otp ? '--otp=' + cmd.otp : ''}`);
