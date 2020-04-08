@@ -3,7 +3,7 @@ import { execSync } from 'child_process';
 
 import * as inquirer from 'inquirer';
 
-import { getOutDirPath } from './util';
+import { getExecPath, getOutDirPath } from './util';
 
 export const publish = async (...args) => {
   const cmd = args[args.length - 1];
@@ -19,6 +19,6 @@ export const publish = async (...args) => {
     process.exit(1);
   }
   console.log(`publishing... ${name}`);
-  execSync(`cd ${outDirPath} && npm publish ${cmd.otp ? '--otp=' + cmd.otp : ''}`);
+  execSync(`cd ${outDirPath} && ${getExecPath()} publish ${cmd.otp ? '--otp=' + cmd.otp : ''}`);
   console.log('published!');
 };

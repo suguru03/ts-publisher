@@ -1,6 +1,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
+export function getExecPath() {
+  return process.env.npm_execpath;
+}
+
 export const projectPath = ['../..', '../../..']
   .map((p) => path.resolve(__dirname, p))
   .find((p) => fs.existsSync(path.resolve(p, 'package.json')));
