@@ -17,7 +17,8 @@ program
 program
   .command('version')
   .description('bump version')
-  .option('-o, --orphan', 'create a new orphan tag')
+  .option('-o, --orphan', 'Create a new orphan tag')
+  .option('-m, --message [value]', 'Commit message')
   .action(version);
 
 program

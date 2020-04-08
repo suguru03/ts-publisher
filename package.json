@@ -6,7 +6,6 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "tsp": "./dist/bin/tsp.js",
     "build": "tsp build",
     "version": "tsp version",
     "publish:npm": "tsp publish"
