@@ -21,4 +21,6 @@ export const version = (options, [version] = []) => {
   fs.writeFileSync(pkgpath, JSON.stringify(pkg, null, 2));
   const message = options.message ?? `v${pkg.version}`;
   execSync(`git commit -am "${message}"`);
+  execSync(`git tag ${pkg.version} -m "${message}"`);
+  console.log(`created ${pkg.version}`);
 };
