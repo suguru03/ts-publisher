@@ -11,16 +11,17 @@ enum Options {
   Minor = 'minor',
   Patch = 'patch',
 }
-export const version = (options, [version] = []) => {
-  if (!Object.values(Options).includes(version)) {
+export const version = (options, [v] = []) => {
+  if (!Object.values(Options).includes(v)) {
     throw new Error('Invalid option. Option must be major, minor or patch');
   }
   const pkgpath = path.resolve(projectPath, 'package.json');
   const pkg = require(pkgpath);
-  pkg.version = semver.inc(pkg.version, version);
+  pkg.version = semver.inc(pkg.version, v);
   fs.writeFileSync(pkgpath, JSON.stringify(pkg, null, 2));
-  const message = options.message ?? `v${pkg.version}`;
+  const version = `v${pkg.version}`;
+  const message = options.message ?? version;
   execSync(`git commit -am "${message}"`);
-  execSync(`git tag ${pkg.version} -m "${message}"`);
-  console.log(`created v${pkg.version} tag`);
+  execSync(`git tag ${version} -m "${message}"`);
+  console.log(`created ${version} tag`);
 };
