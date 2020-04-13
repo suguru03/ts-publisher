@@ -2,7 +2,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 export function getExecPath() {
-  return process.env.npm_execpath;
+  // npm_execpath doesn't exist when npx is used
+  return process.env.npm_execpath || 'npm';
 }
 
 export const projectPath = ['../..', '../../..']
