@@ -4,7 +4,7 @@ import { execSync } from 'child_process';
 
 import * as rimraf from 'rimraf';
 
-import { projectPath, modulePath, getOutDirPath } from './util';
+import { projectPath, modulePath, getOutDirPath, getTsconfigPath } from './util';
 
 const files = ['./README.md'];
 
@@ -15,7 +15,7 @@ export const build = (...args) => {
 
   const tscPath = path.resolve(modulePath, 'typescript', 'bin', 'tsc');
   try {
-    execSync(`${tscPath} --project ${projectPath}`);
+    execSync(`${tscPath} --project ${getTsconfigPath(cmd.project)}`);
   } catch (e) {
     console.error(e.stdout.toString());
     throw new Error('tsc compile error');
